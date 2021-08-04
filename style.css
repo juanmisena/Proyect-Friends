@@ -1,0 +1,3 @@
+body{text-align: center; background-color: aqua;}
+#principal{display: block; width: 500px; margin: 50px auto; padding: 15px; text-align: center; border: 2px solid #999; background: #ddd; -webkit-border-radius: 20px; border-radius: 20px;}
+#titulo{font: bold 36px verdana, sans-serif;}
