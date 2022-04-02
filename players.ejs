@@ -1,0 +1,62 @@
+<%- include('./partials/_header.ejs') %>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Dorsal</th>
+                        <th>Name</th>
+                        <th>Last Name</th>
+                        <th>Position</th>
+                        <th>Nationality</th>
+                        <th>Delete</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data) { %>
+                        <% for( let i = 0; i < data.length; i++ ) { %>
+                            <tr>
+                                <td><%= (i + 1) %> </td>
+                                <td><%= data[i].dorsal %></td>
+                                <td><%= data[i].name %></td>
+                                <td><%= data[i].lastName %></td>
+                                <td><%= data[i].position %></td>
+                                <td><%= data[i].nationality %></td>
+                                <td><a href="/delete/<%= data[i].id %>" class="btn btn-danger">Delete</a></td>
+                                <td><a href="/update/<%= data[i].id %>" class="btn btn-info">Edit</a></td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        <div class="col md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add" method="post">
+                        <div class="form-group">
+                            <input type="number" name="dorsal" placeholder="Dorsal..." class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Name..." class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="lastName" placeholder="Last Name..." class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="position" placeholder="position..." class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="nationality" placeholder="Nationality..." class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Player</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('./partials/_footer.ejs') %>
